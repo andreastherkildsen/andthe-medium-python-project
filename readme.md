@@ -21,6 +21,7 @@ To use this project, follow these steps:
 2. Run the setup script `/shell/setup.sh ` and insert correct .env vars.
 
 3. Install the Python packages by running command;
+
 - For Development `pip install --editable . `
 - For Production `pip install . `
 

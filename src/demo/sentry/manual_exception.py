@@ -3,7 +3,7 @@ from core.sentry.sentry_wrapper import SentryWrapper
 
 def main() -> None:
     try:
-        Exception("Manual exception made by ATHE")
+        Exception("Generic Exception thrown by python script")
     except Exception as e:
         SentryWrapper().capture_exception(e)
 
