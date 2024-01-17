@@ -27,9 +27,9 @@ class MockEcommerce:
             "product_id": random.choice([10100, 101001, 101002]),
             "customer_id": random.choice(
                 [
-                    "customer1@verdo.com",
-                    "customer2@verdo.com",
-                    "customer3@verdo.com",
+                    "customer1@demo.com",
+                    "customer2@demo.com",
+                    "customer3@demo.com",
                 ],
             ),
             "timestamp": time.time(),
