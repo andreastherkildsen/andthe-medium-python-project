@@ -29,16 +29,21 @@ To use this project, follow these steps:
 
 ### Testing
 This project uses pytest for testing. All tests are present and located in the `tests/` dir. 
+
 Run all tests by the following command: `python -m pytest`.
+
 Run single test by the following command: `python -m tests/test_mytest.py`. 
 
 ### How to run shell scripts
-In the `/shell` directory two shell-scripts are present for cleaning the project. 
+In the `/shell` directory two shell-scripts are present for cleaning the project.
+
 Run the scripts by the following command: `./name_of_script.sh`.
 
 ### Static Code Analytics, formatting and linting
 To keep a clean and unified codebase we strive to use [Ruff](https://docs.astral.sh/ruff/).
 
 Format code: `python -m ruff format .`
+
 Scan code: `python -m ruff check .`
+
 Scan and fix code: `python -m ruff check . --fix`
