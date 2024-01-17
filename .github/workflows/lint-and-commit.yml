@@ -1,0 +1,43 @@
+name: lint-and-commit
+
+on: [pull_request]
+
+jobs:
+
+  build:
+
+    # Determine ubuntu
+    runs-on: ubuntu-latest
+
+    # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        # This is the version of the action for setting up Python, not the Python version.
+        uses: actions/setup-python@v4
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+          # Setup cache
+          cache: 'pip'
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Installs Python Project
+        run: python -m pip install . 
+      - name: Run Ruff code analysis
+        run: python -m ruff check --fix
+        continue-on-error: true
+      - name: Run Ruff code formatter
+        run: python -m ruff format 
+      - name: Run tests
+        run: python -m pytest 
+      - name: Ruff automatic commit message
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Linting and formatting by Ruff 💻❤️🐍'

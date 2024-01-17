@@ -1,0 +1,32 @@
+[project]
+name = "andthe-medium-python-project"
+version = "1.0.0"
+description = "Demo project for a medium article"
+readme = "readme.md"
+requires-python = ">=3.7"
+authors = [
+  {name = "Andreas Therkildsen"} # Optional
+]
+dependencies = [
+    "sentry-sdk",
+    "pytest",
+    "ruff",
+    "python-dotenv"
+]
+
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+select = [
+    "A",  # prevent using keywords that clobber python builtins
+    "B",  # bugbear: security warnings
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "ISC",  # implicit string concatenation
+    "UP",  # alert you when better syntax is available in your python version
+    "RUF",  # the ruff developer's own rules
+    "ANN", # flake8 annotiations
+]

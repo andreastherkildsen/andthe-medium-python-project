@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.ruff_cache/
+.pytest_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Local development settings
+.env
+venv/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Local storage and logs
+storage
+storage/
+logs/
