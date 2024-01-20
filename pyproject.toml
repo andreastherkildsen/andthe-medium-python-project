@@ -1,5 +1,5 @@
 [project]
-name = "andthe-medium-python-project"
+name = "andthe-python-linting-pipeline"
 version = "1.0.0"
 description = "Demo project for a medium article"
 readme = "readme.md"
