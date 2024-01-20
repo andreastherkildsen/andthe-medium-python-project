@@ -1,5 +1,5 @@
-## andthe-medium-python-project
-This demo project demonstrates is used for a Medium article.
+## Python linting pipeline 
+This demo project demo is used for a Medium article.
 
 
 ### Project Structure
