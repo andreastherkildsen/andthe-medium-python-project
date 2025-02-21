@@ -3,9 +3,7 @@ name: lint-and-commit
 on: [pull_request]
 
 jobs:
-
   build:
-
     # Determine ubuntu
     runs-on: ubuntu-latest
 
@@ -35,9 +33,14 @@ jobs:
         continue-on-error: true
       - name: Run Ruff code formatter
         run: python -m ruff format 
+      - name: Run SqlFluff fix
+        run: python -m sqlfluff fix . --dialect ansi
+        continue-on-error: true
+      - name: Run SqlFluff linting
+        run: python -m sqlfluff lint . --dialect ansi
       - name: Run tests
         run: python -m pytest 
-      - name: Ruff automatic commit message
+      - name: Automatic commit message
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'Linting and formatting by Ruff 💻❤️🐍'
+          commit_message: 'Best regards, Ruff and SqlFluff💻❤️🐍'

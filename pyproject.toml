@@ -1,5 +1,5 @@
 [project]
-name = "andthe-medium-python-project"
+name = "andthe-python-linting-pipeline"
 version = "1.0.0"
 description = "Demo project for a medium article"
 readme = "readme.md"
@@ -11,22 +11,39 @@ dependencies = [
     "sentry-sdk",
     "pytest",
     "ruff",
-    "python-dotenv"
+    "python-dotenv",
+    "sqlfluff"
 ]
 
 [build-system]
 requires = ["setuptools>=65.5.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+
 [tool.ruff]
-line-length = 100
+
+# Rules for ruff based on available standards and linters
+[lint]
 select = [
-    "A",  # prevent using keywords that clobber python builtins
-    "B",  # bugbear: security warnings
-    "E",  # pycodestyle
-    "F",  # pyflakes
-    "ISC",  # implicit string concatenation
-    "UP",  # alert you when better syntax is available in your python version
-    "RUF",  # the ruff developer's own rules
-    "ANN", # flake8 annotiations
+    "A",    # prevent using keywords that clobber python builtins
+    "E",    # pycodestyle (formatting issues)
+    "F",    # Pyflakes (detects undefined variables, unused imports, etc.)
+    "B",    # bugbear (catches common Python bugs)
+    "I",    # isort (ensures sorted imports)
+    "N",    # flake8-naming (enforces PEP 8 naming conventions)
+    "C90",  # mccabe (detects overly complex functions)
+    "UP",   # pyupgrade (suggests modern Python improvements)
+    "S",    # bandit (flags security issues)
+    "ANN",  # flake8 annotiations
 ]
+
+# Enable `N815` to enforce snake_case variable names
+extend-select = [
+  "N815", # Variable {name} in class scope should not be mixedCase
+  "N816", # Variable {name} in global scope should not be mixedCase
+  "N806", # Variable {name} in function should be lowercase
+]
+
+# Line length and indentions
+line-length = 88
+indent-width = 4
