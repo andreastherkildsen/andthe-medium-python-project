@@ -11,16 +11,16 @@ class Logger:
 
     """Log method, provide message and optional path"""
 
-    def log(message: str, file_name=None) -> True:
+    def log(self, message: str, file_name) -> True:
         try:
             if not file_name:
-                file_name = Logger.default_log
+                file_name = self.default_log
 
             # Create the directory if it doesn't exist
-            if not os.path.exists(Logger.logs_dir):
-                os.makedirs(Logger.logs_dir)
+            if not os.path.exists(self.logs_dir):
+                os.makedirs(self.logs_dir)
 
-            with open(os.path.join(Logger.logs_dir, file_name), "a") as file:
+            with open(os.path.join(self.logs_dir, file_name), "a") as file:
                 file.write(str(datetime.datetime.now()) + " : " + str(message) + "\n")
 
             return True

@@ -47,3 +47,9 @@ Format code: `python -m ruff format .`
 Scan code: `python -m ruff check .`
 
 Scan and fix code: `python -m ruff check . --fix`
+
+For SQL sanity checks we strive to use [sqlfluff](https://github.com/sqlfluff/sqlfluff)
+
+Scan database queries: `python -m sqlfluff lint . --dialect ansi`
+
+Format database queries: `python -m sqlfluff fix . --dialect ansi`
